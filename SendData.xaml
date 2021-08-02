@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="BluetoothController.SendData"
+             xmlns:local="clr-namespace:BluetoothController.ViewModel"
+             Title="Control Page">
+    <ContentPage.BindingContext>
+        <local:DigitViewModel Digit="0"/>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand">
+
+
+            <StackLayout Orientation="Horizontal" Margin="0,40,0,0">
+
+                <StackLayout Orientation="Vertical" Margin="20,0,0,0">
+                    <Label Text="Clamp" FontSize="18" HorizontalOptions="Center"></Label>
+                    <Button x:Name="btnClampOpen" Text="OPEN"></Button>
+                    <Button x:Name="btnClampClose" Text="CLOSE"></Button>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" Margin="40,0,0,0">
+                    <Label Text="Clamp Joint" FontSize="18" HorizontalOptions="Center"></Label>
+                    <Button x:Name="btnClampJointUp" Text="UP"></Button>
+                    <Button x:Name="btnClampJointDown" Text="DOWN"></Button>
+                </StackLayout>
+
+            </StackLayout>
+
+
+            <StackLayout Orientation="Horizontal">
+
+                <StackLayout Orientation="Vertical" Margin="20,0,0,0">
+                    <Label Text="Elbow Joint" FontSize="18" HorizontalOptions="Center"></Label>
+                    <Button x:Name="btnElbowJointUp" Text="UP"></Button>
+                    <Button x:Name="btnElbowJointDown" Text="DOWN"></Button>
+                </StackLayout>
+
+                <StackLayout Orientation="Vertical" Margin="40,0,0,0">
+                    <Label Text="Crane Joint" FontSize="18" HorizontalOptions="Center"></Label>
+                    <Button x:Name="btnCraneJointLeft" Text="LEFT"></Button>
+                    <Button x:Name="btnCraneJointRight" Text="RIGHT"></Button>
+                </StackLayout>
+
+
+
+            </StackLayout>
+
+
+
+            <StackLayout 
+            VerticalOptions="EndAndExpand" 
+            HorizontalOptions="Fill"
+            BackgroundColor="{Binding ConnectionStateBackgroundColor}">
+                <Label x:Name="lblConnectionStatus"
+                   HeightRequest="32"
+                   TextColor="White"
+                   FontSize="Medium"
+                   Text="{Binding ConnectionState, StringFormat='{0}.'}" 
+                   VerticalOptions="Center"
+                   HorizontalOptions="CenterAndExpand"
+                   HorizontalTextAlignment="Center"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
